@@ -62,6 +62,8 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <script defer="" data-domain="r-causal.org" src="https://plausible.io/js/script.js"></script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -128,7 +130,13 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-11" id="toc-sec-11" class="nav-link active" data-scroll-target="#sec-11"><span class="header-section-number">1.1</span> Individual Causal Effects</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -150,9 +158,34 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p><a href="#sec-1"><span>Chapter&nbsp;1</span></a> 은 챕터 1의 링크다.</p>
+<p>독자가 이미 인과 효과가 무엇인지 알고 있으며 연관성과 인과성의 차이를 이해하고 있다고 가정한다. 이 챕터의 목적은 이미 가지고 있는 인과적 직관을 형식화 하는 수학적 표기법을 알아보는 것이다.</p>
+<section id="sec-11" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="sec-11"><span class="header-section-number">1.1</span> Individual Causal Effects</h2>
+<p>우리는 어떤 조치 <span class="math inline">\(A\)</span>가 취해졌을 때의 결과와 <span class="math inline">\(A\)</span>가 취해지지 않았을 때의 결과를 비교하여 두 결과가 다르면, <span class="math inline">\(A\)</span>에 인과 효과가 있다고 말한다. 여기서 <span class="math inline">\(A\)</span>를 간섭(intervention) 또는 exposure, policy, treatment라고 부른다.</p>
+<p>인과적 직관을 분석에 적용하기 위한 표기법을 알아보자. 우선 binary treatment <span class="math inline">\(A\)</span>(1: treated, 0: untreated), binary outcome <span class="math inline">\(Y\)</span>(1: death, 0: survival)를 고려하자. <span class="math inline">\(A\)</span>와 <span class="math inline">\(Y\)</span>는 random variables이다. <span class="math inline">\(Y^{a=1}\)</span>는 처리 <span class="math inline">\(a=1\)</span> 하에서 관찰되는 outcome 변수이고, <span class="math inline">\(Y^{a=0}\)</span>는 처리 <span class="math inline">\(a=0\)</span> 하에서 관찰되는 outcome 변수다. 여기서 <span class="math inline">\(Y^{a=1}\)</span>과 <span class="math inline">\(Y^{a=0}\)</span>도 random variables다.</p>
+<p>이제 개개인에 대한 인과 효과를 정의내릴 수 있다: 만일 개인에 대해 <span class="math inline">\(Y^{a=1}\ne Y^{a=0}\)</span>이라면, 처리 <span class="math inline">\(A\)</span>가 outcome <span class="math inline">\(Y\)</span>에 인과 효과가 있는 것이다. 여기서 변수 <span class="math inline">\(Y^{a=1}\)</span>과 <span class="math inline">\(Y^{a=0}\)</span>를 <strong>잠재적 결과(potential outcomes) 또는 반사실적 결과(counterfactual outcomes)</strong>라고 부른다.</p>
+<ul>
+<li>실제로 관찰될 수 있는 두 결과 중 하나라는 의미에서 ‘잠재적 결과’</li>
+<li>사실에 반하는 상황을 나타내는 의미에서 ‘반사실적 결과’</li>
+</ul>
+<p>각 개인에 대해 반사실적 결과 중 하나는 실제로 사실이다. 예를 들어, 제우스가 실제로 치료를 받았기 때문에(<span class="math inline">\(A=1\)</span>), 그의 치료 하에서의 반사실적 결과 <span class="math inline">\(Y^{a=1}=1\)</span>는 그것의 관찰된 실제 결과 <span class="math inline">\(Y=1\)</span>와 같다. 이는 <span class="math inline">\(Y=Y^A\)</span>와 같이 간결하게 표현할 수 있다. 여기서 <span class="math inline">\(Y^A\)</span>는 개인의 관찰된 처리 <span class="math inline">\(A\)</span>에 해당하는 값 <span class="math inline">\(a\)</span>에서 평가된 반사실적 <span class="math inline">\(Y\)</span>를 나타낸다. 이를 <strong>일관성(consistency)</strong>이라고 한다.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Consistency
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(Y^a_i=Y^A_i=Y_i\)</span> if <span class="math inline">\(A_i=a\)</span></p>
+</div>
+</div>
+<p>개별 인과 효과는 반사실적 결과(counterfactual outcome) 값과의 대조로써 정의되지만, 각 개인에 대해 관찰되는 것은 outcomes 중 하나뿐이다 - 개인이 실제로 경험한 처리 값에 해당하는 것이다. 다른 모든 반사실적 결과는 관찰되지 않는다. 누락된 데이터로 인해 개별 효과는 식별할 수 없다. 즉, 관찰된 데이터의 함수로 표현할 수 없다는 것이다.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
