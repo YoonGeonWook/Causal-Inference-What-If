@@ -1,6 +1,7 @@
 project:
   type: book
   pre-render: R/setsup.R
+  output-dir: docs
 
 callout-appearace: simple
 filters: 
