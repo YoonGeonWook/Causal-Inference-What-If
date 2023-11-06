@@ -25,7 +25,7 @@ book:
   chapters:
     - index.qmd
     
-    - part: 모형 없이 인과적 추론(Causal Inference without models)
+    - part: PART I - Causal Inference without models
       chapters: 
         - chapters/chapter-01.qmd
     # - chapters/references-99.qmd
