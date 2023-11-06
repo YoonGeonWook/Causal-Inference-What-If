@@ -1,0 +1,47 @@
+project:
+  type: book
+  pre-render: R/setsup.R
+
+callout-appearace: simple
+filters: 
+ - chapters/lua/callouts.lua
+
+execute: 
+  freeze: auto
+  echo: true
+  dev: "ragg_png"
+  dpi: 740
+  out.width: "80%"
+  fid.width: 6
+  fig.retina: 3
+  fig.align: "center"
+  fig.show: "hold"
+
+book:
+  title: "Causal Inference in R"
+  author: "Causal Inference Reading Group"
+  date: "today"
+  chapters:
+    - index.qmd
+    
+    - part: 모형 없이 인과적 추론(Causal Inference without models)
+      chapters: 
+        - chapters/chapter-01.qmd
+    # - chapters/references-99.qmd
+
+bibliography: citations.bib
+
+format:
+  html:
+    code-link: true
+    tbl-cap-location: bottom
+    theme: 
+      - cosmo
+      - style.scss
+    include-in-header: "plausible.html"
+
+
+editor_options:
+  markdown:
+    wrap: sentence
+    canonical: true
