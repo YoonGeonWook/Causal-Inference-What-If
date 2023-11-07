@@ -28,6 +28,7 @@ book:
     - part: PART I - Causal Inference without models
       chapters: 
         - chapters/chapter-01.qmd
+        - chapters/chapter-02.qmd
     # - chapters/references-99.qmd
 
 bibliography: citations.bib
@@ -46,3 +47,8 @@ editor_options:
   markdown:
     wrap: sentence
     canonical: true
+    
+knitr: 
+  opts_chunk: 
+    cache: true
+    cache.lazy: true

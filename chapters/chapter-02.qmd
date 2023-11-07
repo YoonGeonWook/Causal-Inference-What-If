@@ -1,0 +1,15 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, comment = '')
+
+pacman::p_load(tidyverse, gt)
+```
+
+# Randomized Experiments {#sec-2}
+
+가나다라

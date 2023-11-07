@@ -1,0 +1,14 @@
+{
+  "hash": "edeeb34208068548cace093878d83b3c",
+  "result": {
+    "markdown": "---\noutput: html_document\neditor_options: \n  chunk_output_type: console\n---\n\n\n\n\n# Randomized Experiments {#sec-2}\n\n가나다라",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
